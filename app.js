@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -18,6 +19,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/api', api);
+
+// Update on run
+if (process.env.UPDATE && process.env.UPDATE == 'true') {
+  var LCBOData = require('./modules/LCBOData');
+  LCBOData.update().then(function() {
+    console.log('Update complete.');
+  });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
