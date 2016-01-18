@@ -5,7 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
@@ -18,11 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 app.use('/api', api);
 
 // Update on run
-if (process.env.UPDATE && process.env.UPDATE == 'true') {
+if (process.env.UPDATE && process.env.UPDATE.trim() == 'true') {
   var LCBOData = require('./modules/LCBOData');
   LCBOData.update().then(function() {
     console.log('Update complete.');

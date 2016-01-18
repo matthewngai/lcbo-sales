@@ -139,7 +139,7 @@ var getData = function() {
     var count = getTotalCount(data);
 
     if (process.env.DEBUG) {
-      count = 50;
+      count = 100;
     }
 
     console.log('Total: ' + count);
