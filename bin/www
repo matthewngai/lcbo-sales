@@ -8,6 +8,10 @@ var app = require('../app');
 var debug = require('debug')('lcbo-sales:server');
 var http = require('http');
 
+// Database
+var db = require('../database/db');
+
+
 /**
  * Get port from environment and store in Express.
  */
