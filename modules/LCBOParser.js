@@ -124,9 +124,9 @@ var request = function(formData, callback) {
   });
 }
 
-var LCBOData = {};
+var LCBOParser = {};
 
-LCBOData.getData = function() {
+LCBOParser.getData = function() {
   var deferred = q.defer();
   
   // Get count
@@ -153,4 +153,4 @@ LCBOData.getData = function() {
   return deferred.promise;
 }
 
-module.exports = LCBOData;
+module.exports = LCBOParser;
