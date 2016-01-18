@@ -20,4 +20,13 @@ router.get('/products', function(req, res, next) {
 	  });
 });
 
+router.get('/sales', function(req, res, next) {
+	LCBOData.getOnSale()
+		.then(products => {
+			res.send(products);
+		}, err => {
+			res.sendStatus(500);
+		});
+});
+
 module.exports = router;

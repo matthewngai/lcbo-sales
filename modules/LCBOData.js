@@ -224,4 +224,19 @@ LCBOData.get = function(pageNum, pageSize) {
   return deferred.promise;
 }
 
+LCBOData.getOnSale = function() {
+  var deferred = q.defer();
+
+  var query = {'savedPrice': { '$ne': ''}};
+  Product.find(query, (err, results) => {
+      if (err) {
+        console.error(err);
+        return deferred.reject(err);
+      }
+      return deferred.resolve(results);
+    });
+
+  return deferred.promise;
+}
+
 module.exports = LCBOData;
