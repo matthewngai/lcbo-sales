@@ -6,6 +6,8 @@ var _ = require('lodash');
 var q = require('q');
 var cheerio = require('cheerio');
 
+var Product = require('../models/product');
+
 var url = 'http://www.lcbo.com/webapp/wcs/stores/servlet/CategoryNavigationResultsView';
 var form = {
   contentBeginIndex: 0,
@@ -124,11 +126,9 @@ var request = function(formData, callback) {
   });
 }
 
-var LCBOParser = {};
-
-LCBOParser.getData = function() {
+var getData = function() {
   var deferred = q.defer();
-  
+
   // Get count
   var form = makeFormData(0);
   request(form, function(error, data) {
@@ -137,10 +137,15 @@ LCBOParser.getData = function() {
       return deferred.reject(error);
     }
     var count = getTotalCount(data);
+
+    if (process.env.DEBUG) {
+      count = 50;
+    }
+
     console.log('Total: ' + count);
 
-     var requests = [];
-    for (var i = 0; i < Math.min(1, count); i += 50) {
+    var requests = [];
+    for (var i = 0; i < count; i += 50) {
       var formData = makeFormData(i);
       requests.push(function(callback) {
         return request(this.formData, callback);
@@ -148,6 +153,41 @@ LCBOParser.getData = function() {
     }
 
     async.parallel(requests, parseResults.bind(null, deferred));
+  });
+
+  return deferred.promise;
+}
+
+var LCBOParser = {};
+
+LCBOParser.update = function() {
+  var deferred = q.defer();
+
+  getData().then(function(data) {
+    _.forEach(data, (item, i) => {
+      var product = new Product({
+        _id: item.id,
+        name: item.name,
+        link: item.link,
+        code: item.code,
+        price: item.price,
+        savedPrice: item.savedPrice,
+        country: item.country,
+        producer: item.producer,
+        airMiles: item.airMiles,
+        volume: item.volume,
+        image: item.image,
+        alcohol: item.alcohol
+      });
+
+      Product.findByIdAndUpdate(product._id, product, { upsert: true }, (err, p) => {
+        if (err) {
+          console.error(err);
+          return deferred.reject(err);
+        }
+      });
+    });
+    return deferred.resolve();
   });
 
   return deferred.promise;

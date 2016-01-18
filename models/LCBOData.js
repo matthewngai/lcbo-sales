@@ -128,7 +128,7 @@ var LCBOData = {};
 
 LCBOData.getData = function() {
   var deferred = q.defer();
-  
+
   // Get count
   var form = makeFormData(0);
   request(form, function(error, data) {

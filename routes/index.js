@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var LCBOData = require('../models/LCBOData');
-LCBOData.getData().then(function(data) {
-	console.log(data.length);
+var LCBOParser = require('../modules/LCBOParser');
+LCBOParser.update().then(function() {
+	console.log('Update complete.');
 });
 
 // /* GET home page. */
