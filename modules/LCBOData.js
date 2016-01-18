@@ -224,11 +224,14 @@ LCBOData.get = function(pageNum, pageSize) {
   return deferred.promise;
 }
 
-LCBOData.getOnSale = function() {
+LCBOData.getOnSale = function(pageNum, pageSize) {
   var deferred = q.defer();
 
   var query = {'savedPrice': { '$ne': ''}};
-  Product.find(query, (err, results) => {
+  Product.find(query)
+    .skip(pageNum * pageSize)
+    .limit(pageSize)
+    .find((err, results) => {
       if (err) {
         console.error(err);
         return deferred.reject(err);
