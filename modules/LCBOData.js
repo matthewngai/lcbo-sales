@@ -87,7 +87,7 @@ var parseResults = function(deferred, err, results) {
     var request = function(callback) {
       var url = 'http://www.lcbo.com' + result.link;
       var args = ['-X GET', '-H "Cache-Control: no-cache', url];
-      execFile('curl.exe', args, {}, function (error, stdout, stderr) {
+      execFile('curl', args, {}, function (error, stdout, stderr) {
         if (error) {
           console.error('exec error: ' + error);
           return callback(error);
@@ -117,7 +117,7 @@ var request = function(formData, callback) {
   var url = 'http://www.lcbo.com/webapp/wcs/stores/servlet/CategoryNavigationResultsView?pageSize=50&manufacturer=&searchType=&resultCatEntryType=&catalogId=10001&categoryId=&langId=-1&storeId=10151&sType=SimpleSearch&filterFacet=&metaData=';
 
   var args = [method, data, headers, url];
-  execFile('curl.exe', args, {}, function (error, stdout, stderr) {
+  execFile('curl', args, {}, function (error, stdout, stderr) {
     if (error) {
       console.error('exec error: ' + error);
       return callback(error);
