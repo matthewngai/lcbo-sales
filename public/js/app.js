@@ -5,10 +5,13 @@ define(['material', 'dataService'], function() {
 
       vm.test = '123';
 
-      // Page Number, Page Size
-      lsDataService.getSales(0, 4).then(function(data) {
-        console.log(data);
-      });
+      this.abc = function(){
+	      // Page Number, Page Size
+	      return lsDataService.getSales(0, 4).then(function(data) {
+	        console.log(data);
+	        return data.count;
+	      });
+      };
     })
     .config(function($mdThemingProvider) {
       $mdThemingProvider.theme('default')

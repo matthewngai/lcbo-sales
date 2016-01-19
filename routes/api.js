@@ -4,11 +4,11 @@ var router = express.Router();
 var LCBOData = require('../modules/LCBOData');
 
 var getPageNum = function(req) {
-  return req.query.pageNum || 0;
+  return Number(req.query.pageNum || 0);
 }
 
 var getPageSize = function(req) {
-  return req.query.pageSize || 10;
+  return Number(req.query.pageSize || 10);
 }
 
 // /api/products?pageNum=Number&pageSize=Number&orderBy=(todo)&filter=(todo)
