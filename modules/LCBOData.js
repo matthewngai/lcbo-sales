@@ -95,7 +95,7 @@ var parseResults = function(deferred, err, results) {
     }
     requests.push(request);
   });
-  async.parallel(requests, (err, results) => {
+  async.series(requests, (err, results) => {
     if (err) {
       console.error(err);
       deferred.reject(err);
@@ -150,7 +150,7 @@ var getData = function() {
       }.bind({formData: formData}));
     }
 
-    async.parallel(requests, parseResults.bind(null, deferred));
+    async.series(requests, parseResults.bind(null, deferred));
   });
 
   return deferred.promise;
