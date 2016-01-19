@@ -4,6 +4,11 @@ define(['material', 'dataService'], function() {
       var vm = this;
 
       vm.test = '123';
+
+      // Page Number, Page Size
+      lsDataService.getSales(0, 4).then(function(data) {
+        console.log(data);
+      });
     })
     .config(function($mdThemingProvider) {
       $mdThemingProvider.theme('default')
