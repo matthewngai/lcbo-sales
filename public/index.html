@@ -20,7 +20,7 @@
         <div class="page-size">
           <label>Page Size:</label>
           <md-input-container>
-            <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()">
+            <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()" aria-label="Page Size">
               <md-option ng-repeat="size in [10,20,30,40,50]" value="{{size}}">
                 {{size}}
               </md-option>
@@ -30,16 +30,16 @@
         <div class="page-navigation">
         </div>
         <div class="page-buttons">
-          <md-button class="md-icon-button" aria-label="Previous Page" ng-click="vm.previousPage()">
+          <md-button class="md-icon-button" aria-label="Previous Page" ng-click="vm.previousPage()" ng-disabled="!vm.hasPrevious()">
             <md-icon class="material-icons">chevron_left</md-icon>
           </md-button>
-          <md-button class="md-icon-button" aria-label="Next Page" ng-click="vm.nextPage()">
+          <md-button class="md-icon-button" aria-label="Next Page" ng-click="vm.nextPage()" ng-disabled="!vm.hasNext()">
             <md-icon class="material-icons">chevron_right</md-icon>
           </md-button>
         </div>
       </div>
       <div style="text-align: center;">
-        <ls-table ls-products="vm.productView"></ls-table>
+        <ls-product-table ls-products="vm.productView"></ls-product-table>
       </div>
     </div>
   </body>

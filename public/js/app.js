@@ -1,5 +1,5 @@
-define(['material', 'dataService'], function() {
-  angular.module('app', ['ngMaterial', 'lsService'])
+define(['material', 'dataService', 'products'], function() {
+  angular.module('app', ['ngMaterial', 'lsService', 'lsProducts'])
   .controller('AppController', function(lsDataService) {
     var vm = this;
 
@@ -9,14 +9,26 @@ define(['material', 'dataService'], function() {
     vm.pageNumber = 0;
     vm.productView = [];
     
+    vm.hasPrevious = function() {
+      return vm.pageNumber > 0;
+    }
+
+    vm.hasNext = function() {
+      return vm.count > (vm.pageNumber + 1) * vm.pageSize;
+    }
+
     vm.previousPage = function() {
-      vm.pageNumber--;
-      vm.onPageResize();
+      if (vm.hasPrevious()) {
+        vm.pageNumber--;
+        vm.onPageResize();
+      }
     }
 
     vm.nextPage = function() {
-      vm.pageNumber++;
-      vm.onPageResize();
+      if (vm.hasNext()) {
+        vm.pageNumber++;
+        vm.onPageResize();
+      }
     }
 
     vm.updateProductView = function() {
@@ -42,23 +54,6 @@ define(['material', 'dataService'], function() {
       });
     }
     vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize);
-  })
-  .directive('lsTable',function() {
-    return {
-      restrict: 'E',
-      scope: {
-        products: '=lsProducts'
-      },
-      controller: function(lsConstants) {
-        var vm = this;
-        vm.getLink = function(link) {
-          return lsConstants.LCBO_URL + link;
-        }
-      },
-      bindToController: true,
-      controllerAs: 'vm',
-      templateUrl: 'templates/table.html'
-    };
   })
   .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
