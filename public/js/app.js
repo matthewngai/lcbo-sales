@@ -7,6 +7,7 @@ define(['material', 'dataService'], function() {
     vm.count = 0;
     vm.pageSize = 10;
     vm.pageNumber = 0;
+    vm.productView = [];
     
     vm.previousPage = function() {
       vm.pageNumber--;
@@ -18,12 +19,18 @@ define(['material', 'dataService'], function() {
       vm.onPageResize();
     }
 
+    vm.updateProductView = function() {
+      vm.productView = vm.products.slice(vm.pageSize*vm.pageNumber, vm.pageSize*(vm.pageNumber+1));
+    }
+
     vm.onPageResize = function() {
       var productLength = vm.products.length;
       var limit = vm.pageSize * (vm.pageNumber + 1) - vm.products.length;
       if (limit > 0) {
         var offset = productLength;
         vm.updateProducts(offset, limit);
+      } else {
+        vm.updateProductView();
       }
     }
 
@@ -31,6 +38,7 @@ define(['material', 'dataService'], function() {
       lsDataService.getSales(offset, limit).then(function(data) {
         vm.count = data.count;
         vm.products = vm.products.concat(data.products);
+        vm.updateProductView();
       });
     }
     vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize);
