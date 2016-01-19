@@ -1,4 +1,5 @@
 var execFile = require('child_process').execFile;
+var execFileSync = require('child_process').execFileSync;
 var mongoose = require('mongoose');
 var async = require('async');
 var querystring = require('querystring');
@@ -124,6 +125,54 @@ var request = function(formData, callback) {
   });
 }
 
+var requestSync = function(formData) {
+  var method = '-X POST';
+  var headers = '-H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded"';
+  var data = '-d ' +  formData;
+  var url = 'http://www.lcbo.com/webapp/wcs/stores/servlet/CategoryNavigationResultsView?pageSize=50&manufacturer=&searchType=&resultCatEntryType=&catalogId=10001&categoryId=&langId=-1&storeId=10151&sType=SimpleSearch&filterFacet=&metaData=';
+
+  var args = [method, data, headers, url];
+  return execFileSync('curl', args, {}).toString();
+}
+
+var saveProducts = function(products) {
+  var deferred = q.defer();
+  async.eachSeries(products, (item, callback) => {
+    var product = new Product({
+      _id: item.id,
+      name: item.name,
+      link: item.link,
+      code: item.code,
+      price: item.price,
+      savedPrice: item.savedPrice,
+      country: item.country,
+      producer: item.producer,
+      airMiles: item.airMiles,
+      volume: item.volume,
+      image: item.image,
+      alcohol: item.alcohol
+    });
+
+    product = product.toObject();
+    var id = product._id;
+    delete product._id;
+
+    Product.findOneAndUpdate({_id: id}, product, { upsert: true }, (err, p) => {
+      if (err) {
+        console.error(err);
+        return callback(err);
+      }
+      return callback(null);
+    });
+  }, function(err) {
+    if (err) {
+      return deferred.reject(err);
+    }
+    return deferred.resolve();
+  });
+  return deferred.promise;
+}
+
 var getData = function() {
   var deferred = q.defer();
 
@@ -137,20 +186,41 @@ var getData = function() {
     var count = getTotalCount(data);
 
     if (process.env.DEBUG) {
-      count = 100;
+      count = 1000;
     }
 
     console.log('Total: ' + count);
 
-    var requests = [];
+    // var requests = [];
+    // for (var i = 0; i < count; i += 50) {
+    //   var formData = makeFormData(i);
+    //   requests.push(function(callback) {
+    //     return request(this.formData, callback);
+    //   }.bind({formData: formData}));
+    // }
+
+    // async.series(requests, parseResults.bind(null, deferred));
+    
+    var forms = [];
     for (var i = 0; i < count; i += 50) {
-      var formData = makeFormData(i);
-      requests.push(function(callback) {
-        return request(this.formData, callback);
-      }.bind({formData: formData}));
+      forms.push(makeFormData(i));
     }
 
-    async.series(requests, parseResults.bind(null, deferred));
+    var i = 0;
+    async.eachSeries(forms, (formData, callback) => {
+      console.log(i += 50);
+      var html = requestSync(formData);
+      var products = parseResult(html);
+      
+      saveProducts(products)
+        .then(function() {
+          callback(null);
+        }, function(err) {
+          callback(err);
+        });
+    }, function() {
+      deferred.resolve();
+    })
   });
 
   return deferred.promise;
@@ -159,40 +229,41 @@ var getData = function() {
 var LCBOData = {};
 
 LCBOData.update = function() {
-  var deferred = q.defer();
+  return getData();
+  // var deferred = q.defer();
 
-  getData().then(function(data) {
-    _.forEach(data, (item, i) => {
-      var product = new Product({
-        _id: item.id,
-        name: item.name,
-        link: item.link,
-        code: item.code,
-        price: item.price,
-        savedPrice: item.savedPrice,
-        country: item.country,
-        producer: item.producer,
-        airMiles: item.airMiles,
-        volume: item.volume,
-        image: item.image,
-        alcohol: item.alcohol
-      });
+  // getData().then(function(data) {
+  //   _.forEach(data, (item, i) => {
+  //     var product = new Product({
+  //       _id: item.id,
+  //       name: item.name,
+  //       link: item.link,
+  //       code: item.code,
+  //       price: item.price,
+  //       savedPrice: item.savedPrice,
+  //       country: item.country,
+  //       producer: item.producer,
+  //       airMiles: item.airMiles,
+  //       volume: item.volume,
+  //       image: item.image,
+  //       alcohol: item.alcohol
+  //     });
 
-      product = product.toObject();
-      var id = product._id;
-      delete product._id;
+  //     product = product.toObject();
+  //     var id = product._id;
+  //     delete product._id;
 
-      Product.findOneAndUpdate({_id: id}, product, { upsert: true }, (err, p) => {
-        if (err) {
-          console.error(err);
-          return deferred.reject(err);
-        }
-      });
-    });
-    return deferred.resolve();
-  });
+  //     Product.findOneAndUpdate({_id: id}, product, { upsert: true }, (err, p) => {
+  //       if (err) {
+  //         console.error(err);
+  //         return deferred.reject(err);
+  //       }
+  //     });
+  //   });
+  //   return deferred.resolve();
+  // });
 
-  return deferred.promise;
+  // return deferred.promise;
 }
 
 LCBOData.getCount = function() {
