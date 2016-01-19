@@ -3,15 +3,17 @@ define(['material', 'dataService'], function() {
     .controller('AppController', function(lsDataService) {
       var vm = this;
 
-      vm.test = '123';
+      vm.products = [];
+      vm.count = 0;
 
-      this.abc = function(){
-	      // Page Number, Page Size
-	      return lsDataService.getSales(0, 4).then(function(data) {
-	        console.log(data);
-	        return data.count;
-	      });
-      };
+      vm.getProducts = function() {
+        // Page Number, Page Size
+        lsDataService.getSales(0, 4).then(function(data) {
+          vm.count = data.count;
+          vm.products = data.products;
+        });
+      }
+      vm.getProducts();
     })
     .config(function($mdThemingProvider) {
       $mdThemingProvider.theme('default')
