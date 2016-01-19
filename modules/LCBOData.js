@@ -178,7 +178,11 @@ LCBOData.update = function() {
         alcohol: item.alcohol
       });
 
-      Product.findByIdAndUpdate(product._id, _.omit(product, '_id'), { upsert: true }, (err, p) => {
+      product = product.toObject();
+      var id = product._id;
+      delete product._id;
+
+      Product.findOneAndUpdate({_id: id}, product, { upsert: true }, (err, p) => {
         if (err) {
           console.error(err);
           return deferred.reject(err);
