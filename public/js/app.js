@@ -7,6 +7,7 @@ define(['material', 'dataService'], function() {
       vm.count = 0;
       vm.pageSize = 10;
       vm.pageNumber = 0;
+      vm.productView = [];
       
       vm.onPageResize = function(){
         var productLength = vm.products.length;
@@ -14,13 +15,21 @@ define(['material', 'dataService'], function() {
         if (limit > 0) {
           var offset = productLength;
           vm.updateProducts(offset, limit);
+        } 
+        else {
+          vm.updateProductView();
         }
+      }
+
+      vm.updateProductView = function() {
+        vm.productView = vm.products.slice(vm.pageSize*vm.pageNumber, vm.pageSize*(vm.pageNumber+1));
       }
 
       vm.updateProducts = function(offset, limit) {
         lsDataService.getSales(offset, limit).then(function(data) {
           vm.count = data.count;
           vm.products = vm.products.concat(data.products);
+          vm.updateProductView();
         });
       }
       vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize);
