@@ -7,27 +7,21 @@ define(['material', 'dataService'], function() {
       vm.count = 0;
       vm.pageSize = 10;
       vm.pageNumber = 0;
-      vm.onPageResize = function(pageSize){
-      	var size = pageSize * (vm.pageNumber + 1) - vm.products.length;
-      	console.log(vm.pageSize, pageSize);
-      	
+      
+      vm.onPageResize = function(){
+        var productLength = vm.products.length;
+      	var limit = vm.pageSize * (vm.pageNumber + 1) - vm.products.length;
+      	var offset = productLength;
+        vm.updateProducts(offset, limit);
       }
-      vm.updateProducts = function(num, size) {
-        // Page Number, Page Size
-        lsDataService.getSales(num, size).then(function(data) {
+
+      vm.updateProducts = function(offset, limit) {
+        lsDataService.getSales(offset, limit).then(function(data) {
           vm.count = data.count;
           vm.products.concat(data.products);
         });
       }
-
-      vm.getProducts = function() {
-        // Page Number, Page Size
-        lsDataService.getSales(vm.pageNumber, vm.pageSize).then(function(data) {
-          vm.count = data.count;
-          vm.products = data.products;
-        });
-      }
-      vm.getProducts();
+      vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize);
     })
     .directive('lsTable',function(){
     	return {

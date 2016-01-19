@@ -19,7 +19,7 @@
     <div class="page-size">
       <md-input-container >
         <label>Page Size</label>
-        <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize(vm.pageSize)">
+        <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()">
           <md-option ng-repeat="size in [10,20,30,40,50]" value="{{size}}">
             {{size}}
           </md-option>

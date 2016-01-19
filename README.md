@@ -4,4 +4,4 @@
 `set DEBUG=myapp:* && npm start`
 
 ## Api Call
-`/api/sales?pageNum=0&pageSize=10`
+`/api/sales?offset0&limit=10`
