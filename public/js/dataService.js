@@ -1,6 +1,6 @@
 define(['constants', function() {
 	angular.module('lsService', ['lsConstants'])
-		.factory('lsDataService', function(lsConstants) {
+		.factory('lsDataService', function($http, lsConstants) {
 			var ds = {};
 
 			ds.cache = [];
