@@ -1,18 +1,58 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 
-h1 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 150px;
-  color: #2C3C2D;
-  font-weight: 500;
-}
-
 a {
   color: black;
   text-decoration: none;
+}
+
+.header {
+  background-color: #8BC34A;
+
+  h1 {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 150px;
+    color: #2C3C2D;
+    font-weight: 500;
+  }
+}
+
+.products {
+  width: 100%;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.page-controls {
+  md-toolbar {
+    background-color: transparent;
+
+    .md-toolbar-tools {
+      padding: 0;
+    }
+  }
+
+  .page-size,.page-navigation,.page-buttons {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .page-size {
+    md-input-container {
+      margin-top: 14px;
+    }
+
+    label {
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .page-navigation {
+    min-width: 120px;
+    text-align: right;
+  }
 }
 
 .product-table {
@@ -21,18 +61,5 @@ a {
 
   .price {
     text-align: right;
-  }
-}
-
-
-.page-controls {
-  text-align: right;
-  .page-size,.page-navigation,.page-buttons {
-    text-align: left;
-    display: inline-block;
-  }
-
-  .page-size {
-    
   }
 }
