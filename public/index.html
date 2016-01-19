@@ -17,9 +17,8 @@
     </div>
     <div class="products">
       <h2>{{vm.count}}</h2>
-      <div ng-repeat="product in vm.products">
-        {{product.name}}
-      </div>
+      <ls-table ls-products="vm.products"></ls-table>
+      
     </div>
   </body>
 </html>

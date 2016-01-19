@@ -1,0 +1,15 @@
+<table>
+  <tr ng-repeat="product in vm.products">
+    <td><img ng-src="{{vm.getLink(product.image)}}"></td>
+    <td>
+      <a ng-href="{{vm.getLink(product.link)}}" target="_blank"><h3>{{ product.name }}</h3></a>
+      <br/>
+      {{product.volume}}
+    </td>
+    <td>
+    {{product.price}}
+    <br/>
+    You Save: {{product.savedPrice}}
+    </td>
+  </tr>
+</table>
