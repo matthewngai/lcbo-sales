@@ -3,11 +3,11 @@ var router = express.Router();
 
 var LCBOData = require('../modules/LCBOData');
 
-var getPageSize = function(req) {
+var getPageNum = function(req) {
   return req.query.pageNum || 0;
 }
 
-var getPageNum = function(req) {
+var getPageSize = function(req) {
   return req.query.pageSize || 10;
 }
 
@@ -35,7 +35,7 @@ router.get('/sales', function(req, res, next) {
 
   LCBOData.getOnSale(pageNum, pageSize)
     .then(products => {
-      LCBOData.getCount()
+      LCBOData.getSaleCount()
         .then(count => {
           res.set('totalCount', count);
           res.send(products);

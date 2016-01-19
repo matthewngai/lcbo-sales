@@ -224,14 +224,28 @@ LCBOData.get = function(pageNum, pageSize) {
   return deferred.promise;
 }
 
+LCBOData.getSaleCount = function() {
+  var deferred = q.defer();
+  var query = {'savedPrice': { '$ne': ''}};
+  Product.find(query).count((err, count) => {
+    if (err) {
+      console.error(err);
+      return deferred.reject(err);
+    }
+    return deferred.resolve(count);
+  });
+
+  return deferred.promise;
+}
+
 LCBOData.getOnSale = function(pageNum, pageSize) {
   var deferred = q.defer();
 
   var query = {'savedPrice': { '$ne': ''}};
-  Product.find(query)
+  Product.find()
     .skip(pageNum * pageSize)
     .limit(pageSize)
-    .find((err, results) => {
+    .find(query, (err, results) => {
       if (err) {
         console.error(err);
         return deferred.reject(err);
