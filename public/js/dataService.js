@@ -4,8 +4,8 @@ define(['constants'], function() {
 			var ds = {};
 
 			// Returns { products, count }
-			ds.getSales = function(pageNum, pageSize) {
-				var options = ['pageNum=' + pageNum, 'pageSize=' + pageSize].join('&');
+			ds.getSales = function(offset, limit) {
+				var options = ['offset=' + offset, 'limit=' + limit].join('&');
 				return $http.get(lsConstants.SALES_URL + '?' + options)
 					.then(function(response) {
 						return {

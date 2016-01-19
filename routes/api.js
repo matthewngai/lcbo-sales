@@ -3,20 +3,20 @@ var router = express.Router();
 
 var LCBOData = require('../modules/LCBOData');
 
-var getPageNum = function(req) {
-  return Number(req.query.pageNum || 0);
+var getOffset = function(req) {
+  return Number(req.query.offset || 0);
 }
 
-var getPageSize = function(req) {
-  return Number(req.query.pageSize || 10);
+var getLimit = function(req) {
+  return Number(req.query.limit || 10);
 }
 
-// /api/products?pageNum=Number&pageSize=Number&orderBy=(todo)&filter=(todo)
+// /api/products?offset=Number&limit=Number&orderBy=(todo)&filter=(todo)
 // router.get('/products', function(req, res, next) {
-//   var pageNum = getPageNum(req);
-//   var pageSize = getPageSize(req);
+//   var offset = getOffset(req);
+//   var limit = getLimit(req);
 
-//   var results = LCBOData.get(pageNum, pageSize)
+//   var results = LCBOData.get(offset, limit)
 //     .then(products => {
 //       LCBOData.getCount()
 //         .then(count => {
@@ -28,12 +28,12 @@ var getPageSize = function(req) {
 //     });
 // });
 
-// /api/sales?pageNum=Number&pageSize=Number
+// /api/sales?offset=Number&limit=Number
 router.get('/sales', function(req, res, next) {
-  var pageNum = getPageNum(req);
-  var pageSize = getPageSize(req);
+  var offset = getOffset(req);
+  var limit = getLimit(req);
 
-  LCBOData.getOnSale(pageNum, pageSize)
+  LCBOData.getOnSale(offset, limit)
     .then(products => {
       LCBOData.getSaleCount()
         .then(count => {

@@ -280,12 +280,12 @@ LCBOData.getCount = function() {
   return deferred.promise;
 }
 
-LCBOData.get = function(pageNum, pageSize) {
+LCBOData.get = function(offset, limit) {
   var deferred = q.defer();
 
   Product.find()
-    .skip(pageNum * pageSize)
-    .limit(pageSize)
+    .skip(offset)
+    .limit(limit)
     .find((err, results) => {
       if (err) {
         console.error(err);
@@ -311,13 +311,13 @@ LCBOData.getSaleCount = function() {
   return deferred.promise;
 }
 
-LCBOData.getOnSale = function(pageNum, pageSize) {
+LCBOData.getOnSale = function(offset, limit) {
   var deferred = q.defer();
 
   var query = {'savedPrice': { '$ne': ''}};
   Product.find()
-    .skip(pageNum * pageSize)
-    .limit(pageSize)
+    .skip(offset)
+    .limit(limit)
     .find(query, (err, results) => {
       if (err) {
         console.error(err);
