@@ -15,11 +15,11 @@
     <div class="header" layout="row">
       <h1>LCBO Sales</h1>
     </div>
-    <div>
-      {{vm.abc()}}
-    </div>
-    <div>
-      
+    <div class="products">
+      <h2>{{vm.count}}</h2>
+      <div ng-repeat="product in vm.products">
+        {{product.name}}
+      </div>
     </div>
   </body>
 </html>
