@@ -11,23 +11,27 @@ h1 {
 }
 
 /* line 13, ../../sass/style.scss */
-.table {
-  text-align: left;
-}
-
-/* line 17, ../../sass/style.scss */
-.price {
-  text-align: right;
-}
-
-/* line 21, ../../sass/style.scss */
 a {
   color: black;
   text-decoration: none;
 }
 
-/* line 26, ../../sass/style.scss */
-.page-size {
+/* line 18, ../../sass/style.scss */
+.product-table {
+  margin: auto;
+  text-align: left;
+}
+/* line 22, ../../sass/style.scss */
+.product-table .price {
   text-align: right;
-  margin-right: 300px;
+}
+
+/* line 28, ../../sass/style.scss */
+.page-controls {
+  text-align: right;
+}
+/* line 30, ../../sass/style.scss */
+.page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
+  text-align: left;
+  display: inline-block;
 }
