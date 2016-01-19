@@ -11,14 +11,16 @@ define(['material', 'dataService'], function() {
       vm.onPageResize = function(){
         var productLength = vm.products.length;
       	var limit = vm.pageSize * (vm.pageNumber + 1) - vm.products.length;
-      	var offset = productLength;
-        vm.updateProducts(offset, limit);
+        if (limit > 0) {
+          var offset = productLength;
+          vm.updateProducts(offset, limit);
+        }
       }
 
       vm.updateProducts = function(offset, limit) {
         lsDataService.getSales(offset, limit).then(function(data) {
           vm.count = data.count;
-          vm.products.concat(data.products);
+          vm.products = vm.products.concat(data.products);
         });
       }
       vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize);
