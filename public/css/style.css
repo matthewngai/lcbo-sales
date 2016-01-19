@@ -9,3 +9,25 @@ h1 {
   color: #2C3C2D;
   font-weight: 500;
 }
+
+/* line 13, ../../sass/style.scss */
+.table {
+  text-align: left;
+}
+
+/* line 17, ../../sass/style.scss */
+.price {
+  text-align: right;
+}
+
+/* line 21, ../../sass/style.scss */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* line 26, ../../sass/style.scss */
+.page-size {
+  text-align: right;
+  margin-right: 300px;
+}

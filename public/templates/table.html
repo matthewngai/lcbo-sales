@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <tr ng-repeat="product in vm.products">
     <td><img ng-src="{{vm.getLink(product.image)}}"></td>
     <td>
@@ -6,7 +6,7 @@
       <br/>
       {{product.volume}}
     </td>
-    <td>
+    <td class="price">
     {{product.price}}
     <br/>
     You Save: {{product.savedPrice}}

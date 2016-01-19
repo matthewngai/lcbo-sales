@@ -5,9 +5,24 @@ define(['material', 'dataService'], function() {
 
       vm.products = [];
       vm.count = 0;
+      vm.pageSize = 10;
+      vm.pageNumber = 0;
+      vm.onPageResize = function(pageSize){
+      	var size = pageSize * (vm.pageNumber + 1) - vm.products.length;
+      	console.log(vm.pageSize, pageSize);
+      	
+      }
+      vm.updateProducts = function(num, size) {
+        // Page Number, Page Size
+        lsDataService.getSales(num, size).then(function(data) {
+          vm.count = data.count;
+          vm.products.concat(data.products);
+        });
+      }
+
       vm.getProducts = function() {
         // Page Number, Page Size
-        lsDataService.getSales(0, 165).then(function(data) {
+        lsDataService.getSales(vm.pageNumber, vm.pageSize).then(function(data) {
           vm.count = data.count;
           vm.products = data.products;
         });
