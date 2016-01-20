@@ -94,7 +94,6 @@ a, a:hover {
 .products {
   width: 100%;
   margin: auto;
-  margin-bottom: 50px;
 }
 @media (min-width: 1024px) {
   /* line 108, ../../sass/style.scss */
@@ -103,80 +102,80 @@ a, a:hover {
   }
 }
 
-/* line 119, ../../sass/style.scss */
+/* line 118, ../../sass/style.scss */
 .page-controls {
   right: 0;
   top: 0;
 }
-/* line 123, ../../sass/style.scss */
+/* line 122, ../../sass/style.scss */
 .page-controls.affix {
   width: 100%;
 }
-/* line 126, ../../sass/style.scss */
+/* line 125, ../../sass/style.scss */
 .page-controls.affix md-toolbar {
   transition: background-color 0.2s linear;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
-/* line 131, ../../sass/style.scss */
+/* line 130, ../../sass/style.scss */
 .page-controls.affix .page-size {
   display: none;
 }
-/* line 135, ../../sass/style.scss */
+/* line 134, ../../sass/style.scss */
 .page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
   color: white;
 }
-/* line 140, ../../sass/style.scss */
+/* line 139, ../../sass/style.scss */
 .page-controls:not(.affix) {
   position: absolute;
 }
-/* line 143, ../../sass/style.scss */
+/* line 142, ../../sass/style.scss */
 .page-controls:not(.affix) md-toolbar {
   background-color: transparent;
 }
-/* line 149, ../../sass/style.scss */
+/* line 148, ../../sass/style.scss */
 .page-controls md-toolbar .md-toolbar-tools {
   padding: 0;
 }
-/* line 154, ../../sass/style.scss */
+/* line 153, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
   text-align: left;
   display: inline-block;
 }
-/* line 159, ../../sass/style.scss */
+/* line 158, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation {
   font-size: 14px;
   font-weight: 300;
   color: #777;
 }
-/* line 166, ../../sass/style.scss */
+/* line 165, ../../sass/style.scss */
 .page-controls .page-size md-input-container {
   margin-top: 14px;
 }
-/* line 170, ../../sass/style.scss */
+/* line 169, ../../sass/style.scss */
 .page-controls .page-size span {
   position: relative;
   top: 1px;
 }
-/* line 176, ../../sass/style.scss */
+/* line 175, ../../sass/style.scss */
 .page-controls .page-navigation {
   min-width: 120px;
   text-align: right;
 }
 
-/* line 182, ../../sass/style.scss */
+/* line 181, ../../sass/style.scss */
 .product-table-container {
   margin-top: 64px;
   border-top: 1px solid #CCC;
 }
 
-/* line 187, ../../sass/style.scss */
+/* line 186, ../../sass/style.scss */
 .product-table {
   margin: auto;
   width: 100%;
   text-align: left;
   font-weight: 300;
 }
-/* line 193, ../../sass/style.scss */
+/* line 192, ../../sass/style.scss */
 .product-table .product {
   background-color: transparent;
   transition: background-color 0.1s linear;
@@ -184,58 +183,58 @@ a, a:hover {
   border-bottom: 1px solid #EEE;
 }
 @media (min-width: 1024px) {
-  /* line 193, ../../sass/style.scss */
+  /* line 192, ../../sass/style.scss */
   .product-table .product {
     padding-left: 100px;
     padding-right: 100px;
   }
 }
-/* line 206, ../../sass/style.scss */
+/* line 205, ../../sass/style.scss */
 .product-table .product:hover {
   background-color: #CCC;
 }
-/* line 210, ../../sass/style.scss */
+/* line 209, ../../sass/style.scss */
 .product-table .product .product-image {
   width: 64px;
   border-radius: 12px;
 }
-/* line 224, ../../sass/style.scss */
+/* line 223, ../../sass/style.scss */
 .product-table .product .product-right {
   text-align: right;
 }
-/* line 228, ../../sass/style.scss */
+/* line 227, ../../sass/style.scss */
 .product-table .product .product-name {
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
-/* line 234, ../../sass/style.scss */
+/* line 233, ../../sass/style.scss */
 .product-table .product .product-volume {
   color: #888;
 }
-/* line 238, ../../sass/style.scss */
+/* line 237, ../../sass/style.scss */
 .product-table .product .product-price {
   font-size: 32px;
   color: black;
 }
-/* line 243, ../../sass/style.scss */
+/* line 242, ../../sass/style.scss */
 .product-table .product .product-saved-price {
   font-size: 12px;
   color: #8BC34A;
 }
-/* line 248, ../../sass/style.scss */
+/* line 247, ../../sass/style.scss */
 .product-table .product .product-original-price {
   font-size: 12px;
   color: #777;
 }
 
-/* line 255, ../../sass/style.scss */
+/* line 254, ../../sass/style.scss */
 .footer {
   height: 50px;
   background-color: black;
   color: white;
 }
-/* line 260, ../../sass/style.scss */
+/* line 259, ../../sass/style.scss */
 .footer .footer-disclaimer {
   margin: auto;
   text-align: center;
@@ -246,7 +245,7 @@ a, a:hover {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 260, ../../sass/style.scss */
+  /* line 259, ../../sass/style.scss */
   .footer .footer-disclaimer {
     width: 100%;
     font-size: 8px;
