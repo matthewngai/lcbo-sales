@@ -4,52 +4,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LCBO Sales</title>
+    <title>Not for the Taste - LCBO Sales</title>
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link href="css/style.css" rel="stylesheet">
 
     <script data-main="js/index" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
   </head>
-  <body ng-controller="AppController as vm">
-    <div class="header md-whiteframe-4dp" layout="row">
-      <h1>LCBO Sales</h1>
+  <body>
+    <div class="splash">
+      <div class="splash-container">
+        <div class="splash-text">
+          Loading...
+        </div>
+        <md-progress-circular class="splash-progress" md-mode="indeterminate"></md-progress-circular>
+      </div>
     </div>
-    <div class="products" layout="row">
-      <md-content flex="100">
-        <div class="page-controls">
-          <md-toolbar>
-            <div class="md-toolbar-tools">
-              <span flex></span>
-              <div class="page-size">
-                <label>Rows per page:</label>
-                <md-input-container>
-                  <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()" aria-label="Page Size">
-                    <md-option ng-repeat="size in vm.pageSizes" value="{{size}}">
-                      {{size}}
-                    </md-option>
-                  </md-select>
-                </md-input-container>
-              </div>
-              <div class="page-navigation">
-                {{vm.getStart()}}-{{vm.getEnd()}} of {{vm.count}}
-              </div>
-              <div class="page-buttons">
-                <md-button class="md-icon-button" aria-label="Previous Page" ng-click="vm.previousPage()" ng-disabled="!vm.hasPrevious()">
-                  <md-icon class="material-icons">chevron_left</md-icon>
-                </md-button>
-                {{vm.pageNumber+1}}
-                <md-button class="md-icon-button" aria-label="Next Page" ng-click="vm.nextPage()" ng-disabled="!vm.hasNext()">
-                  <md-icon class="material-icons">chevron_right</md-icon>
-                </md-button>
-              </div>
-            </div>
-          </md-toolbar>
-        </div>
-        <div style="text-align: center;">
-          <ls-product-table ls-products="vm.productView"></ls-product-table>
-        </div>
-      </md-content>
+    <div class="content" ng-controller="AppController as vm">
+      <div class="header md-whiteframe-4dp">
+        <h1><b>Not</b> for the <b>Taste</b></h1>
+        <h2>LCBO Sales</h2>
+      </div>
+      <div class="products" layout="row">
+        <md-content flex="100">
+          <div class="page-controls">
+            <ls-product-controls
+              ls-page-size="vm.pageSize"
+              ls-page-sizes="vm.pageSizes"
+              ls-page-number="vm.pageNumber"
+              ls-count="vm.count"
+              ls-on-page-resize="vm.onPageResize()">
+            </ls-product-controls>
+          </div>
+          <div style="text-align: center;">
+            <ls-product-table ls-products="vm.productView"></ls-product-table>
+          </div>
+        </md-content>
+      </div>
     </div>
   </body>
 </html>

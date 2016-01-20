@@ -1,7 +1,7 @@
 <table class="product-table">
   <tr ng-repeat="product in vm.products track by $index">
     <td>
-      <img ng-src="{{vm.getLink(product.image)}}">
+      <img class="product-image" ng-src="{{vm.getLink(product.image)}}">
     </td>
     <td>
       <a ng-href="{{vm.getLink(product.link)}}" target="_blank"><h3>{{ product.name }}</h3></a>

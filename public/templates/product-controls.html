@@ -1,0 +1,26 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <span flex></span>
+    <div class="page-size">
+      <label>Rows per page:</label>
+      <md-input-container>
+        <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()" aria-label="Page Size">
+          <md-option ng-repeat="size in vm.pageSizes" value="{{size}}">
+            {{size}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div class="page-navigation">
+      {{vm.getStart()}}-{{vm.getEnd()}} of {{vm.count}}
+    </div>
+    <div class="page-buttons">
+      <md-button class="md-icon-button" aria-label="Previous Page" ng-click="vm.previousPage()" ng-disabled="!vm.hasPrevious()">
+        <md-icon class="material-icons">chevron_left</md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Next Page" ng-click="vm.nextPage()" ng-disabled="!vm.hasNext()">
+        <md-icon class="material-icons">chevron_right</md-icon>
+      </md-button>
+    </div>
+  </div>
+</md-toolbar>
