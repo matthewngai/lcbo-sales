@@ -1,10 +1,10 @@
 <div class="product-table">
   <a ng-repeat="product in vm.products track by $index" ng-href="{{vm.getLink(product.link)}}" target="_blank">
     <div class="product" layout="row">
-      <div class="product-left" flex="10">
+      <div class="product-left" flex="20" flex-gt-sm="15" flex-gt-md="10">
         <img class="product-image" ng-src="{{vm.getLink(product.image)}}" />
       </div>
-      <div class="product-center" flex="70">
+      <div class="product-center" flex="60" flex-gt-sm="65" flex-gt-md="70">
         <div class="product-name">{{product.name}}</div>
         <div class="product-volume">{{product.volume}}</div>
       </div>

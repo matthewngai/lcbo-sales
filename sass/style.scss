@@ -32,22 +32,29 @@ $grey-900: #212121;
 $text-primary: $grey-900;
 $text-secondary: $grey-700;
 
-$tablet-width: 768px;
-$desktop-width: 1024px;
+$xs-width: 600px;
+$tablet-width: 960px;
+$desktop-width: 1280px;
 
-@mixin small {
+@mixin xs {
+  @media (max-width: #{$xs-width}) {
+    @content;
+  }
+}
+
+@mixin sm {
   @media (max-width: #{$tablet-width - 1px}) {
     @content;
   }
 }
 
-@mixin tablet {
-  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+@mixin md {
+  @media (max-width: #{$desktop-width - 1px}) {
     @content;
   }
 }
 
-@mixin desktop {
+@mixin lg {
   @media (min-width: #{$desktop-width}) {
     @content;
   }
@@ -108,13 +115,12 @@ a,a:hover {
   }
 
   h1 {
-    // font-family: "Alegreya Sans SC", sans-serif;
     font-family: 'Lobster', cursive;
     font-size: 64px;
     color: $light-green-50;
     font-weight: 400;
 
-    @include small {
+    @include xs {
       font-size: 32px;
     }
   }
@@ -126,7 +132,7 @@ a,a:hover {
     color: $light-green-200;
     font-weight: 300;
 
-    @include small {
+    @include xs {
       font-size: 12px;
       top: -6px;
     }
@@ -136,7 +142,7 @@ a,a:hover {
 .products {
   width: 100%;
   
-  @include desktop {
+  @include lg {
     width: 66%;
   }
   
@@ -158,7 +164,7 @@ a,a:hover {
         background-color: $light-green-500;
         padding-right: 17%;
 
-        @include small {
+        @include xs {
           padding-right: 0;
         }
       }
@@ -182,8 +188,17 @@ a,a:hover {
   }
 
   md-toolbar {
+    @include md {
+      min-height: 56px;
+    }
+
     .md-toolbar-tools {
       padding: 0;
+
+      @include md {
+        min-height: 56px;
+        height: 56px;
+      }
     }
   }
 
@@ -199,6 +214,10 @@ a,a:hover {
   }
 
   .page-size {
+    @include xs {
+      display: none;
+    }
+
     md-input-container {
       margin-top: 14px;
     }
@@ -210,14 +229,19 @@ a,a:hover {
   }
 
   .page-navigation {
+    margin-top: 1px;
     min-width: 120px;
     text-align: right;
   }
 }
 
 .product-table-container {
-  margin-top: 64px;
+  margin-top: 56px;
   border-top: 1px solid $grey-400;
+
+  @include lg {
+    margin-top: 64px;
+  }
 }
 
 .product-table {
@@ -234,7 +258,7 @@ a,a:hover {
 
     border-bottom: 1px solid $grey-200;
 
-    @include desktop {
+    @include lg {
       padding-left: 100px;
       padding-right: 100px;
     }
@@ -247,18 +271,18 @@ a,a:hover {
       width: 64px;
       border-radius: 12px;
 
-      @include small {
+      @include xs {
         width: 48px;
       }
     }
 
 
     .product-left {
-
+      text-align: center;
     }
 
     .product-center {
-
+      text-align: left;
     }
 
     .product-right {
@@ -270,7 +294,7 @@ a,a:hover {
       font-size: 24px;
       font-weight: 400;
 
-      @include small {
+      @include xs {
         font-size: 18px;
       }
     }
@@ -278,7 +302,7 @@ a,a:hover {
     .product-volume {
       color: $text-secondary;
 
-      @include small {
+      @include xs {
         font-size: 12px;
       }
     }
@@ -287,7 +311,7 @@ a,a:hover {
       font-size: 32px;
       color: $text-primary;
 
-      @include small {
+      @include xs {
         font-size: 24px;
       }
     }
@@ -297,7 +321,7 @@ a,a:hover {
       color: $light-green-A700;
 
 
-      @include small {
+      @include xs {
         font-size: 10px;
       }
     }
@@ -307,7 +331,7 @@ a,a:hover {
       color: $text-secondary;
 
 
-      @include small {
+      @include xs {
         font-size: 10px;
       }
     }
@@ -329,7 +353,7 @@ a,a:hover {
     transform: translateY(-50%);
     top: 50%;
 
-    @include small {
+    @include xs {
       width: 100%;
       font-size: 8px;
     }

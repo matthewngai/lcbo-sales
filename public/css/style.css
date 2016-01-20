@@ -2,18 +2,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700);
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,300,700,500);
 @import url(https://fonts.googleapis.com/css?family=Lobster);
-/* line 56, ../../sass/style.scss */
+/* line 63, ../../sass/style.scss */
 html, body {
   font-family: Roboto,"Helvetica Neue",sans-serif;
   color: #212121;
 }
 
-/* line 61, ../../sass/style.scss */
+/* line 68, ../../sass/style.scss */
 body {
   overflow: hidden;
 }
 
-/* line 65, ../../sass/style.scss */
+/* line 72, ../../sass/style.scss */
 .splash {
   width: 100%;
   height: 100%;
@@ -21,14 +21,14 @@ body {
   position: absolute;
   z-index: 10000;
 }
-/* line 72, ../../sass/style.scss */
+/* line 79, ../../sass/style.scss */
 .splash .splash-container {
   position: relative;
   transform: translateY(-50%);
   top: 50%;
   height: 70px;
 }
-/* line 79, ../../sass/style.scss */
+/* line 86, ../../sass/style.scss */
 .splash .splash-text {
   color: #F1F8E9;
   width: 100%;
@@ -36,46 +36,46 @@ body {
   font-size: 28px;
   font-weight: 100;
 }
-/* line 87, ../../sass/style.scss */
+/* line 94, ../../sass/style.scss */
 .splash .splash-progress {
   margin: auto;
 }
 
-/* line 92, ../../sass/style.scss */
+/* line 99, ../../sass/style.scss */
 .content {
   display: none;
   background-color: #F1F8E9;
 }
 
-/* line 97, ../../sass/style.scss */
+/* line 104, ../../sass/style.scss */
 a, a:hover {
   color: #212121 !important;
   text-decoration: none !important;
 }
 
-/* line 102, ../../sass/style.scss */
+/* line 109, ../../sass/style.scss */
 .header {
   background-color: #689F38;
 }
-/* line 105, ../../sass/style.scss */
+/* line 112, ../../sass/style.scss */
 .header h1, .header h2 {
   text-align: center;
   margin: 0 auto;
 }
-/* line 110, ../../sass/style.scss */
+/* line 117, ../../sass/style.scss */
 .header h1 {
   font-family: 'Lobster', cursive;
   font-size: 64px;
   color: #F1F8E9;
   font-weight: 400;
 }
-@media (max-width: 767px) {
-  /* line 110, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 117, ../../sass/style.scss */
   .header h1 {
     font-size: 32px;
   }
 }
-/* line 122, ../../sass/style.scss */
+/* line 128, ../../sass/style.scss */
 .header h2 {
   position: relative;
   font-size: 16px;
@@ -83,207 +83,241 @@ a, a:hover {
   color: #C5E1A5;
   font-weight: 300;
 }
-@media (max-width: 767px) {
-  /* line 122, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 128, ../../sass/style.scss */
   .header h2 {
     font-size: 12px;
     top: -6px;
   }
 }
 
-/* line 136, ../../sass/style.scss */
+/* line 142, ../../sass/style.scss */
 .products {
   width: 100%;
   margin: auto;
 }
-@media (min-width: 1024px) {
-  /* line 136, ../../sass/style.scss */
+@media (min-width: 1280px) {
+  /* line 142, ../../sass/style.scss */
   .products {
     width: 66%;
   }
 }
 
-/* line 146, ../../sass/style.scss */
+/* line 152, ../../sass/style.scss */
 .page-controls {
   right: 0;
   top: 0;
 }
-/* line 150, ../../sass/style.scss */
+/* line 156, ../../sass/style.scss */
 .page-controls.affix {
   width: 100%;
 }
-/* line 153, ../../sass/style.scss */
+/* line 159, ../../sass/style.scss */
 .page-controls.affix md-toolbar {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
-/* line 156, ../../sass/style.scss */
+/* line 162, ../../sass/style.scss */
 .page-controls.affix md-toolbar .md-toolbar-tools {
   transition: background-color 0.2s linear;
   background-color: #8BC34A;
   padding-right: 17%;
 }
-@media (max-width: 767px) {
-  /* line 156, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 162, ../../sass/style.scss */
   .page-controls.affix md-toolbar .md-toolbar-tools {
     padding-right: 0;
   }
 }
-/* line 167, ../../sass/style.scss */
+/* line 173, ../../sass/style.scss */
 .page-controls.affix .page-size {
   display: none;
 }
-/* line 171, ../../sass/style.scss */
+/* line 177, ../../sass/style.scss */
 .page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
   color: #F1F8E9;
 }
-/* line 176, ../../sass/style.scss */
+/* line 182, ../../sass/style.scss */
 .page-controls:not(.affix) {
   position: absolute;
 }
-/* line 179, ../../sass/style.scss */
+/* line 185, ../../sass/style.scss */
 .page-controls:not(.affix) md-toolbar {
   background-color: transparent;
 }
-/* line 185, ../../sass/style.scss */
+@media (max-width: 1279px) {
+  /* line 190, ../../sass/style.scss */
+  .page-controls md-toolbar {
+    min-height: 56px;
+  }
+}
+/* line 195, ../../sass/style.scss */
 .page-controls md-toolbar .md-toolbar-tools {
   padding: 0;
 }
-/* line 190, ../../sass/style.scss */
+@media (max-width: 1279px) {
+  /* line 195, ../../sass/style.scss */
+  .page-controls md-toolbar .md-toolbar-tools {
+    min-height: 56px;
+    height: 56px;
+  }
+}
+/* line 205, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
   text-align: left;
   display: inline-block;
 }
-/* line 195, ../../sass/style.scss */
+/* line 210, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation {
   font-size: 14px;
   font-weight: 300;
   color: #616161;
 }
-/* line 202, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 216, ../../sass/style.scss */
+  .page-controls .page-size {
+    display: none;
+  }
+}
+/* line 221, ../../sass/style.scss */
 .page-controls .page-size md-input-container {
   margin-top: 14px;
 }
-/* line 206, ../../sass/style.scss */
+/* line 225, ../../sass/style.scss */
 .page-controls .page-size span {
   position: relative;
   top: 1px;
 }
-/* line 212, ../../sass/style.scss */
+/* line 231, ../../sass/style.scss */
 .page-controls .page-navigation {
+  margin-top: 1px;
   min-width: 120px;
   text-align: right;
 }
 
-/* line 218, ../../sass/style.scss */
+/* line 238, ../../sass/style.scss */
 .product-table-container {
-  margin-top: 64px;
+  margin-top: 56px;
   border-top: 1px solid #BDBDBD;
 }
+@media (min-width: 1280px) {
+  /* line 238, ../../sass/style.scss */
+  .product-table-container {
+    margin-top: 64px;
+  }
+}
 
-/* line 223, ../../sass/style.scss */
+/* line 247, ../../sass/style.scss */
 .product-table {
   margin: auto;
   width: 100%;
   text-align: left;
   font-weight: 300;
 }
-/* line 229, ../../sass/style.scss */
+/* line 253, ../../sass/style.scss */
 .product-table .product {
   background-color: transparent;
   transition: background-color 0.1s linear;
   padding: 20px;
   border-bottom: 1px solid #EEEEEE;
 }
-@media (min-width: 1024px) {
-  /* line 229, ../../sass/style.scss */
+@media (min-width: 1280px) {
+  /* line 253, ../../sass/style.scss */
   .product-table .product {
     padding-left: 100px;
     padding-right: 100px;
   }
 }
-/* line 242, ../../sass/style.scss */
+/* line 266, ../../sass/style.scss */
 .product-table .product:hover {
   background-color: #CCFF90;
 }
-/* line 246, ../../sass/style.scss */
+/* line 270, ../../sass/style.scss */
 .product-table .product .product-image {
   width: 64px;
   border-radius: 12px;
 }
-@media (max-width: 767px) {
-  /* line 246, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 270, ../../sass/style.scss */
   .product-table .product .product-image {
     width: 48px;
   }
 }
-/* line 264, ../../sass/style.scss */
+/* line 280, ../../sass/style.scss */
+.product-table .product .product-left {
+  text-align: center;
+}
+/* line 284, ../../sass/style.scss */
+.product-table .product .product-center {
+  text-align: left;
+}
+/* line 288, ../../sass/style.scss */
 .product-table .product .product-right {
   text-align: right;
 }
-/* line 268, ../../sass/style.scss */
+/* line 292, ../../sass/style.scss */
 .product-table .product .product-name {
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
-@media (max-width: 767px) {
-  /* line 268, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 292, ../../sass/style.scss */
   .product-table .product .product-name {
     font-size: 18px;
   }
 }
-/* line 278, ../../sass/style.scss */
+/* line 302, ../../sass/style.scss */
 .product-table .product .product-volume {
   color: #616161;
 }
-@media (max-width: 767px) {
-  /* line 278, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 302, ../../sass/style.scss */
   .product-table .product .product-volume {
     font-size: 12px;
   }
 }
-/* line 286, ../../sass/style.scss */
+/* line 310, ../../sass/style.scss */
 .product-table .product .product-price {
   font-size: 32px;
   color: #212121;
 }
-@media (max-width: 767px) {
-  /* line 286, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 310, ../../sass/style.scss */
   .product-table .product .product-price {
     font-size: 24px;
   }
 }
-/* line 295, ../../sass/style.scss */
+/* line 319, ../../sass/style.scss */
 .product-table .product .product-saved-price {
   font-size: 12px;
   color: #64DD17;
 }
-@media (max-width: 767px) {
-  /* line 295, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 319, ../../sass/style.scss */
   .product-table .product .product-saved-price {
     font-size: 10px;
   }
 }
-/* line 305, ../../sass/style.scss */
+/* line 329, ../../sass/style.scss */
 .product-table .product .product-original-price {
   font-size: 12px;
   color: #616161;
 }
-@media (max-width: 767px) {
-  /* line 305, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 329, ../../sass/style.scss */
   .product-table .product .product-original-price {
     font-size: 10px;
   }
 }
 
-/* line 317, ../../sass/style.scss */
+/* line 341, ../../sass/style.scss */
 .footer {
   height: 50px;
   position: relative;
   background-color: #689F38;
   color: #F1F8E9;
 }
-/* line 323, ../../sass/style.scss */
+/* line 347, ../../sass/style.scss */
 .footer .footer-disclaimer {
   margin: auto;
   text-align: center;
@@ -293,8 +327,8 @@ a, a:hover {
   transform: translateY(-50%);
   top: 50%;
 }
-@media (max-width: 767px) {
-  /* line 323, ../../sass/style.scss */
+@media (max-width: 600px) {
+  /* line 347, ../../sass/style.scss */
   .footer .footer-disclaimer {
     width: 100%;
     font-size: 8px;
