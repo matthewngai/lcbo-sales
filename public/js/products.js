@@ -42,14 +42,14 @@ define(['constants'], function() {
           vm.previousPage = function() {
             if (vm.hasPrevious()) {
               vm.pageNumber--;
-              vm.onPageResize();
+              vm.pageResize();
             }
           }
 
           vm.nextPage = function() {
             if (vm.hasNext()) {
               vm.pageNumber++;
-              vm.onPageResize();
+              vm.pageResize();
             }
           }
 
@@ -61,6 +61,14 @@ define(['constants'], function() {
           vm.getEnd = function() {
             var end = (vm.pageNumber + 1) * vm.pageSize;
             return Math.min(end, vm.count);
+          }
+
+          vm.onClose = function() {
+            vm.pageResize();
+          }
+
+          vm.pageResize = function() {
+            vm.onPageResize({page: vm.pageNumber});
           }
         },
         controllerAs: 'vm',

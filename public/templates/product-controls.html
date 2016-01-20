@@ -2,9 +2,9 @@
   <div class="md-toolbar-tools">
     <span flex></span>
     <div class="page-size">
-      <label>Rows per page:</label>
+      <span>Products per page:</span>
       <md-input-container>
-        <md-select ng-model="vm.pageSize" md-on-close="vm.onPageResize()" aria-label="Page Size">
+        <md-select ng-model="vm.pageSize" md-on-close="vm.onClose()" aria-label="Page Size">
           <md-option ng-repeat="size in vm.pageSizes" value="{{size}}">
             {{size}}
           </md-option>

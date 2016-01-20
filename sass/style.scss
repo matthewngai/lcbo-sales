@@ -3,6 +3,35 @@
 @import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
 
+$text-primary: black;
+$text-secondary: #777;
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin small {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+html,body {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: $text-primary;
+}
+
 .splash {
   width: 100%;
   height: 100%;
@@ -34,12 +63,12 @@
 }
 
 a {
-  color: black;
+  color: $text-primary;
   text-decoration: none;
 }
 
 .header {
-  background-color: #8BC34A;
+  // background-color: #8BC34A;
 
   h1,h2 {
     text-align: center;
@@ -48,29 +77,65 @@ a {
 
   h1 {
     font-family: 'Alegreya Sans SC', sans-serif;
-    font-size: 128px;
+    font-size: 64px;
     color: #2C3C2D;
     font-weight: 400;
+
+    @include small {
+      font-size: 32px;
+    }
   }
 
   h2 {
-    font-family: 'Arvo', serif;
-    font-size: 32px;
+    position: relative;
+    font-size: 16px;
+    top: -12px;
     color: lighten(#2C3C2D, 10%);
     font-weight: 300;
+
+    @include small {
+      font-size: 12px;
+      top: -6px;
+    }
   }
 }
 
 .products {
   width: 100%;
+  
+  @include desktop {
+    width: 66%;
+  }
+  
   margin: auto;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .page-controls {
-  md-toolbar {
-    background-color: transparent;
+  right: 0;
+  top: 0;
+  
+  &.affix {
+    width: 100%;
 
+    md-toolbar {
+      transition: background-color 0.2s linear;
+    }
+
+    .page-size,.page-navigation,.page-buttons md-icon {
+      color: white;
+    }
+  }
+
+  &:not(.affix) {
+    position: absolute;
+
+    md-toolbar {
+      background-color: transparent;
+    }
+  }
+
+  md-toolbar {
     .md-toolbar-tools {
       padding: 0;
     }
@@ -81,12 +146,18 @@ a {
     display: inline-block;
   }
 
+  .page-size,.page-navigation {
+    font-size: 14px;
+    font-weight: 300;
+    color: $text-secondary;
+  }
+
   .page-size {
     md-input-container {
       margin-top: 14px;
     }
 
-    label {
+    span {
       position: relative;
       top: 1px;
     }
@@ -98,15 +169,21 @@ a {
   }
 }
 
+.product-table-container {
+  margin-top: 64px;
+}
+
 .product-table {
   margin: auto;
+  width: 100%;
   text-align: left;
+  font-weight: 300;
 
   .price {
     text-align: right;
   }
 
   .product-image {
-    width: 128px;
+    width: 64px;
   }
 }

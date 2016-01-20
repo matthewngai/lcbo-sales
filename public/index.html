@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Not for the Taste - LCBO Sales</title>
+    <title>Not for the Taste | LCBO Sales</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
     <link href="css/style.css" rel="stylesheet">
 
@@ -22,8 +23,10 @@
     </div>
     <div class="content" ng-controller="AppController as vm">
       <div class="header md-whiteframe-4dp">
-        <h1><b>Not</b> for the <b>Taste</b></h1>
-        <h2>LCBO Sales</h2>
+        <div class="header-text">
+          <h1>Not for the Taste</h1>
+          <h2>LCBO Sales</h2>
+        </div>
       </div>
       <div class="products" layout="row">
         <md-content flex="100">
@@ -33,10 +36,10 @@
               ls-page-sizes="vm.pageSizes"
               ls-page-number="vm.pageNumber"
               ls-count="vm.count"
-              ls-on-page-resize="vm.onPageResize()">
+              ls-on-page-resize="vm.onPageResize(page)">
             </ls-product-controls>
           </div>
-          <div style="text-align: center;">
+          <div class="product-table-container">
             <ls-product-table ls-products="vm.productView"></ls-product-table>
           </div>
         </md-content>

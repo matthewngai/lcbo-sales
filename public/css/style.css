@@ -2,21 +2,27 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700);
 @import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
-/* line 6, ../../sass/style.scss */
+/* line 30, ../../sass/style.scss */
+html, body {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  color: black;
+}
+
+/* line 35, ../../sass/style.scss */
 .splash {
   width: 100%;
   height: 100%;
   background-color: black;
   position: fixed;
 }
-/* line 12, ../../sass/style.scss */
+/* line 41, ../../sass/style.scss */
 .splash .splash-container {
   position: relative;
   transform: translateY(-50%);
   top: 50%;
   height: 70px;
 }
-/* line 19, ../../sass/style.scss */
+/* line 48, ../../sass/style.scss */
 .splash .splash-text {
   color: white;
   width: 100%;
@@ -24,91 +30,141 @@
   font-size: 28px;
   font-weight: 100;
 }
-/* line 27, ../../sass/style.scss */
+/* line 56, ../../sass/style.scss */
 .splash .splash-progress {
   margin: auto;
 }
 
-/* line 32, ../../sass/style.scss */
+/* line 61, ../../sass/style.scss */
 .content {
   display: none;
 }
 
-/* line 36, ../../sass/style.scss */
+/* line 65, ../../sass/style.scss */
 a {
   color: black;
   text-decoration: none;
 }
 
-/* line 41, ../../sass/style.scss */
-.header {
-  background-color: #8BC34A;
-}
-/* line 44, ../../sass/style.scss */
+/* line 73, ../../sass/style.scss */
 .header h1, .header h2 {
   text-align: center;
   margin: 0 auto;
 }
-/* line 49, ../../sass/style.scss */
+/* line 78, ../../sass/style.scss */
 .header h1 {
   font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 128px;
+  font-size: 64px;
   color: #2C3C2D;
   font-weight: 400;
 }
-/* line 56, ../../sass/style.scss */
+@media (max-width: 767px) {
+  /* line 78, ../../sass/style.scss */
+  .header h1 {
+    font-size: 32px;
+  }
+}
+/* line 89, ../../sass/style.scss */
 .header h2 {
-  font-family: 'Arvo', serif;
-  font-size: 32px;
+  position: relative;
+  font-size: 16px;
+  top: -12px;
   color: #425943;
   font-weight: 300;
 }
+@media (max-width: 767px) {
+  /* line 89, ../../sass/style.scss */
+  .header h2 {
+    font-size: 12px;
+    top: -6px;
+  }
+}
 
-/* line 64, ../../sass/style.scss */
+/* line 103, ../../sass/style.scss */
 .products {
   width: 100%;
   margin: auto;
-  padding-top: 20px;
+  padding-top: 10px;
+}
+@media (min-width: 1024px) {
+  /* line 103, ../../sass/style.scss */
+  .products {
+    width: 66%;
+  }
 }
 
-/* line 71, ../../sass/style.scss */
-.page-controls md-toolbar {
+/* line 114, ../../sass/style.scss */
+.page-controls {
+  right: 0;
+  top: 0;
+}
+/* line 118, ../../sass/style.scss */
+.page-controls.affix {
+  width: 100%;
+}
+/* line 121, ../../sass/style.scss */
+.page-controls.affix md-toolbar {
+  transition: background-color 0.2s linear;
+}
+/* line 125, ../../sass/style.scss */
+.page-controls.affix .page-size, .page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
+  color: white;
+}
+/* line 130, ../../sass/style.scss */
+.page-controls:not(.affix) {
+  position: absolute;
+}
+/* line 133, ../../sass/style.scss */
+.page-controls:not(.affix) md-toolbar {
   background-color: transparent;
 }
-/* line 74, ../../sass/style.scss */
+/* line 139, ../../sass/style.scss */
 .page-controls md-toolbar .md-toolbar-tools {
   padding: 0;
 }
-/* line 79, ../../sass/style.scss */
+/* line 144, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
   text-align: left;
   display: inline-block;
 }
-/* line 85, ../../sass/style.scss */
+/* line 149, ../../sass/style.scss */
+.page-controls .page-size, .page-controls .page-navigation {
+  font-size: 14px;
+  font-weight: 300;
+  color: #777;
+}
+/* line 156, ../../sass/style.scss */
 .page-controls .page-size md-input-container {
   margin-top: 14px;
 }
-/* line 89, ../../sass/style.scss */
-.page-controls .page-size label {
+/* line 160, ../../sass/style.scss */
+.page-controls .page-size span {
   position: relative;
   top: 1px;
 }
-/* line 95, ../../sass/style.scss */
+/* line 166, ../../sass/style.scss */
 .page-controls .page-navigation {
   min-width: 120px;
   text-align: right;
 }
 
-/* line 101, ../../sass/style.scss */
+/* line 172, ../../sass/style.scss */
+.product-table-container {
+  margin-top: 64px;
+}
+
+/* line 176, ../../sass/style.scss */
 .product-table {
   margin: auto;
+  width: 100%;
   text-align: left;
+  font-weight: 300;
 }
-/* line 105, ../../sass/style.scss */
+/* line 182, ../../sass/style.scss */
 .product-table .price {
   text-align: right;
 }
-/* line 109, ../../sass/style.scss */
+/* line 186, ../../sass/style.scss */
 .product-table .product-image {
-  width: 128px;
+  width: 64px;
 }
