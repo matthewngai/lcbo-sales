@@ -155,7 +155,7 @@ a,a:hover {
 
       .md-toolbar-tools {
         transition: background-color 0.2s linear;
-        background-color: black;//$light-green-500;
+        background-color: $light-green-500;
         padding-right: 17%;
 
         @include small {

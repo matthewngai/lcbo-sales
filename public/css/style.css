@@ -119,7 +119,7 @@ a, a:hover {
 /* line 156, ../../sass/style.scss */
 .page-controls.affix md-toolbar .md-toolbar-tools {
   transition: background-color 0.2s linear;
-  background-color: black;
+  background-color: #8BC34A;
   padding-right: 17%;
 }
 @media (max-width: 767px) {
