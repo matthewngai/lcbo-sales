@@ -114,82 +114,80 @@ a, a:hover {
 }
 /* line 153, ../../sass/style.scss */
 .page-controls.affix md-toolbar {
-  transition: background-color 0.2s linear;
-  background-color: #8BC34A;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
-/* line 158, ../../sass/style.scss */
+/* line 156, ../../sass/style.scss */
 .page-controls.affix md-toolbar .md-toolbar-tools {
   transition: background-color 0.2s linear;
-  background-color: #8BC34A;
+  background-color: black;
   padding-right: 17%;
 }
 @media (max-width: 767px) {
-  /* line 158, ../../sass/style.scss */
+  /* line 156, ../../sass/style.scss */
   .page-controls.affix md-toolbar .md-toolbar-tools {
     padding-right: 0;
   }
 }
-/* line 169, ../../sass/style.scss */
+/* line 167, ../../sass/style.scss */
 .page-controls.affix .page-size {
   display: none;
 }
-/* line 173, ../../sass/style.scss */
+/* line 171, ../../sass/style.scss */
 .page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
   color: #F1F8E9;
 }
-/* line 178, ../../sass/style.scss */
+/* line 176, ../../sass/style.scss */
 .page-controls:not(.affix) {
   position: absolute;
 }
-/* line 181, ../../sass/style.scss */
+/* line 179, ../../sass/style.scss */
 .page-controls:not(.affix) md-toolbar {
   background-color: transparent;
 }
-/* line 187, ../../sass/style.scss */
+/* line 185, ../../sass/style.scss */
 .page-controls md-toolbar .md-toolbar-tools {
   padding: 0;
 }
-/* line 192, ../../sass/style.scss */
+/* line 190, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
   text-align: left;
   display: inline-block;
 }
-/* line 197, ../../sass/style.scss */
+/* line 195, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation {
   font-size: 14px;
   font-weight: 300;
   color: #616161;
 }
-/* line 204, ../../sass/style.scss */
+/* line 202, ../../sass/style.scss */
 .page-controls .page-size md-input-container {
   margin-top: 14px;
 }
-/* line 208, ../../sass/style.scss */
+/* line 206, ../../sass/style.scss */
 .page-controls .page-size span {
   position: relative;
   top: 1px;
 }
-/* line 214, ../../sass/style.scss */
+/* line 212, ../../sass/style.scss */
 .page-controls .page-navigation {
   min-width: 120px;
   text-align: right;
 }
 
-/* line 220, ../../sass/style.scss */
+/* line 218, ../../sass/style.scss */
 .product-table-container {
   margin-top: 64px;
   border-top: 1px solid #BDBDBD;
 }
 
-/* line 225, ../../sass/style.scss */
+/* line 223, ../../sass/style.scss */
 .product-table {
   margin: auto;
   width: 100%;
   text-align: left;
   font-weight: 300;
 }
-/* line 231, ../../sass/style.scss */
+/* line 229, ../../sass/style.scss */
 .product-table .product {
   background-color: transparent;
   transition: background-color 0.1s linear;
@@ -197,95 +195,95 @@ a, a:hover {
   border-bottom: 1px solid #EEEEEE;
 }
 @media (min-width: 1024px) {
-  /* line 231, ../../sass/style.scss */
+  /* line 229, ../../sass/style.scss */
   .product-table .product {
     padding-left: 100px;
     padding-right: 100px;
   }
 }
-/* line 244, ../../sass/style.scss */
+/* line 242, ../../sass/style.scss */
 .product-table .product:hover {
   background-color: #CCFF90;
 }
-/* line 248, ../../sass/style.scss */
+/* line 246, ../../sass/style.scss */
 .product-table .product .product-image {
   width: 64px;
   border-radius: 12px;
 }
 @media (max-width: 767px) {
-  /* line 248, ../../sass/style.scss */
+  /* line 246, ../../sass/style.scss */
   .product-table .product .product-image {
     width: 48px;
   }
 }
-/* line 266, ../../sass/style.scss */
+/* line 264, ../../sass/style.scss */
 .product-table .product .product-right {
   text-align: right;
 }
-/* line 270, ../../sass/style.scss */
+/* line 268, ../../sass/style.scss */
 .product-table .product .product-name {
   font-family: "Alegreya Sans SC", sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
 @media (max-width: 767px) {
-  /* line 270, ../../sass/style.scss */
+  /* line 268, ../../sass/style.scss */
   .product-table .product .product-name {
     font-size: 18px;
   }
 }
-/* line 280, ../../sass/style.scss */
+/* line 278, ../../sass/style.scss */
 .product-table .product .product-volume {
   color: #616161;
 }
 @media (max-width: 767px) {
-  /* line 280, ../../sass/style.scss */
+  /* line 278, ../../sass/style.scss */
   .product-table .product .product-volume {
     font-size: 12px;
   }
 }
-/* line 288, ../../sass/style.scss */
+/* line 286, ../../sass/style.scss */
 .product-table .product .product-price {
   font-size: 32px;
   color: #212121;
 }
 @media (max-width: 767px) {
-  /* line 288, ../../sass/style.scss */
+  /* line 286, ../../sass/style.scss */
   .product-table .product .product-price {
     font-size: 24px;
   }
 }
-/* line 297, ../../sass/style.scss */
+/* line 295, ../../sass/style.scss */
 .product-table .product .product-saved-price {
   font-size: 12px;
   color: #64DD17;
 }
 @media (max-width: 767px) {
-  /* line 297, ../../sass/style.scss */
+  /* line 295, ../../sass/style.scss */
   .product-table .product .product-saved-price {
     font-size: 10px;
   }
 }
-/* line 307, ../../sass/style.scss */
+/* line 305, ../../sass/style.scss */
 .product-table .product .product-original-price {
   font-size: 12px;
   color: #616161;
 }
 @media (max-width: 767px) {
-  /* line 307, ../../sass/style.scss */
+  /* line 305, ../../sass/style.scss */
   .product-table .product .product-original-price {
     font-size: 10px;
   }
 }
 
-/* line 319, ../../sass/style.scss */
+/* line 317, ../../sass/style.scss */
 .footer {
   height: 50px;
   position: relative;
   background-color: #689F38;
   color: #F1F8E9;
 }
-/* line 325, ../../sass/style.scss */
+/* line 323, ../../sass/style.scss */
 .footer .footer-disclaimer {
   margin: auto;
   text-align: center;
@@ -296,7 +294,7 @@ a, a:hover {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 325, ../../sass/style.scss */
+  /* line 323, ../../sass/style.scss */
   .footer .footer-disclaimer {
     width: 100%;
     font-size: 8px;
