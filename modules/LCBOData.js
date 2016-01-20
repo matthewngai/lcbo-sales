@@ -315,10 +315,11 @@ LCBOData.getOnSale = function(offset, limit) {
   var deferred = q.defer();
 
   var query = {'savedPrice': { '$ne': ''}};
-  Product.find()
+  Product.find(query)
+    .sort('name')
     .skip(offset)
     .limit(limit)
-    .find(query, (err, results) => {
+    .find((err, results) => {
       if (err) {
         console.error(err);
         return deferred.reject(err);
