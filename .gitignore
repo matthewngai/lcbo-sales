@@ -30,3 +30,5 @@ node_modules
 npm-debug.log
 
 .sass-cache
+
+public/.DS_Store
