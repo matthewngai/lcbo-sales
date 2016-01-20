@@ -8,8 +8,14 @@ define(['constants'], function() {
         },
         controller: function(lsConstants) {
           var vm = this;
+
           vm.getLink = function(link) {
             return lsConstants.LCBO_URL + link;
+          }
+
+          vm.getOriginalPrice = function(product) {
+            var original = Number(product.price.substr(1)) + Number(product.savedPrice.substr(1));
+            return '$' + original.toFixed(2);
           }
         },
         bindToController: true,

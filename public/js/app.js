@@ -12,7 +12,6 @@ define(['material', 'dataService', 'products'], function() {
       vm.pageNumber = 0;
       vm.productView = [];
 
-      
       vm.updateProductView = function() {
         vm.productView = vm.products.slice(vm.pageSize * vm.pageNumber, vm.pageSize * (vm.pageNumber + 1));
       }
@@ -42,8 +41,10 @@ define(['material', 'dataService', 'products'], function() {
       var initialize = function() {
         vm.updateProducts(vm.pageNumber * vm.pageSize, vm.pageSize)
           .then(function() {
-            $('.content').fadeIn();
-            $('.splash').fadeOut();
+            $('.content').show();
+            $('.splash').fadeOut(800, function() {
+              $('body').css('overflow', 'auto');
+            });
 
             $('.page-controls').affix({
               offset: {

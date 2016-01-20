@@ -1,17 +1,18 @@
-<table class="product-table">
-  <tr ng-repeat="product in vm.products track by $index">
-    <td>
-      <img class="product-image" ng-src="{{vm.getLink(product.image)}}">
-    </td>
-    <td>
-      <a ng-href="{{vm.getLink(product.link)}}" target="_blank"><h3>{{ product.name }}</h3></a>
-      <br/>
-      {{product.volume}}
-    </td>
-    <td class="price">
-      {{product.price}}
-      <br/>
-      Save: {{product.savedPrice}}
-    </td>
-  </tr>
-</table>
+<div class="product-table">
+  <a ng-repeat="product in vm.products track by $index" ng-href="{{vm.getLink(product.link)}}" target="_blank">
+    <div class="product" layout="row">
+      <div class="product-left" flex="10">
+        <img class="product-image" ng-src="{{vm.getLink(product.image)}}" />
+      </div>
+      <div class="product-center" flex="75">
+        <div class="product-name">{{product.name}}</div>
+        <div class="product-volume">{{product.volume}}</div>
+      </div>
+      <div class="product-right" flex="15">
+        <div class="product-original-price">WAS {{vm.getOriginalPrice(product)}}</div>
+        <div class="product-price">{{product.price}}</div>
+        <div class="product-saved-price">SAVE {{product.savedPrice}}</div>
+      </div>
+    </div>
+  </div>
+</div>

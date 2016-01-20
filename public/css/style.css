@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700);
 @import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
-@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC);
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,300,700,500);
 /* line 30, ../../sass/style.scss */
 html, body {
   font-family: Roboto,"Helvetica Neue",sans-serif;
@@ -9,20 +9,26 @@ html, body {
 }
 
 /* line 35, ../../sass/style.scss */
+body {
+  overflow: hidden;
+}
+
+/* line 39, ../../sass/style.scss */
 .splash {
   width: 100%;
   height: 100%;
   background-color: black;
-  position: fixed;
+  position: absolute;
+  z-index: 10000;
 }
-/* line 41, ../../sass/style.scss */
+/* line 46, ../../sass/style.scss */
 .splash .splash-container {
   position: relative;
   transform: translateY(-50%);
   top: 50%;
   height: 70px;
 }
-/* line 48, ../../sass/style.scss */
+/* line 53, ../../sass/style.scss */
 .splash .splash-text {
   color: white;
   width: 100%;
@@ -30,41 +36,41 @@ html, body {
   font-size: 28px;
   font-weight: 100;
 }
-/* line 56, ../../sass/style.scss */
+/* line 61, ../../sass/style.scss */
 .splash .splash-progress {
   margin: auto;
 }
 
-/* line 61, ../../sass/style.scss */
+/* line 66, ../../sass/style.scss */
 .content {
   display: none;
 }
 
-/* line 65, ../../sass/style.scss */
-a {
-  color: black;
-  text-decoration: none;
+/* line 70, ../../sass/style.scss */
+a, a:hover {
+  color: black !important;
+  text-decoration: none !important;
 }
 
-/* line 73, ../../sass/style.scss */
+/* line 78, ../../sass/style.scss */
 .header h1, .header h2 {
   text-align: center;
   margin: 0 auto;
 }
-/* line 78, ../../sass/style.scss */
+/* line 83, ../../sass/style.scss */
 .header h1 {
-  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: "Alegreya Sans SC", sans-serif;
   font-size: 64px;
   color: #2C3C2D;
   font-weight: 400;
 }
 @media (max-width: 767px) {
-  /* line 78, ../../sass/style.scss */
+  /* line 83, ../../sass/style.scss */
   .header h1 {
     font-size: 32px;
   }
 }
-/* line 89, ../../sass/style.scss */
+/* line 94, ../../sass/style.scss */
 .header h2 {
   position: relative;
   font-size: 16px;
@@ -73,98 +79,172 @@ a {
   font-weight: 300;
 }
 @media (max-width: 767px) {
-  /* line 89, ../../sass/style.scss */
+  /* line 94, ../../sass/style.scss */
   .header h2 {
     font-size: 12px;
     top: -6px;
   }
 }
 
-/* line 103, ../../sass/style.scss */
+/* line 108, ../../sass/style.scss */
 .products {
   width: 100%;
   margin: auto;
+  margin-bottom: 50px;
   padding-top: 10px;
 }
 @media (min-width: 1024px) {
-  /* line 103, ../../sass/style.scss */
+  /* line 108, ../../sass/style.scss */
   .products {
     width: 66%;
   }
 }
 
-/* line 114, ../../sass/style.scss */
+/* line 120, ../../sass/style.scss */
 .page-controls {
   right: 0;
   top: 0;
 }
-/* line 118, ../../sass/style.scss */
+/* line 124, ../../sass/style.scss */
 .page-controls.affix {
   width: 100%;
 }
-/* line 121, ../../sass/style.scss */
+/* line 127, ../../sass/style.scss */
 .page-controls.affix md-toolbar {
   transition: background-color 0.2s linear;
 }
-/* line 125, ../../sass/style.scss */
-.page-controls.affix .page-size, .page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
+/* line 131, ../../sass/style.scss */
+.page-controls.affix .page-size {
+  display: none;
+}
+/* line 135, ../../sass/style.scss */
+.page-controls.affix .page-navigation, .page-controls.affix .page-buttons md-icon {
   color: white;
 }
-/* line 130, ../../sass/style.scss */
+/* line 140, ../../sass/style.scss */
 .page-controls:not(.affix) {
   position: absolute;
 }
-/* line 133, ../../sass/style.scss */
+/* line 143, ../../sass/style.scss */
 .page-controls:not(.affix) md-toolbar {
   background-color: transparent;
 }
-/* line 139, ../../sass/style.scss */
+/* line 149, ../../sass/style.scss */
 .page-controls md-toolbar .md-toolbar-tools {
   padding: 0;
 }
-/* line 144, ../../sass/style.scss */
+/* line 154, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation, .page-controls .page-buttons {
   text-align: left;
   display: inline-block;
 }
-/* line 149, ../../sass/style.scss */
+/* line 159, ../../sass/style.scss */
 .page-controls .page-size, .page-controls .page-navigation {
   font-size: 14px;
   font-weight: 300;
   color: #777;
 }
-/* line 156, ../../sass/style.scss */
+/* line 166, ../../sass/style.scss */
 .page-controls .page-size md-input-container {
   margin-top: 14px;
 }
-/* line 160, ../../sass/style.scss */
+/* line 170, ../../sass/style.scss */
 .page-controls .page-size span {
   position: relative;
   top: 1px;
 }
-/* line 166, ../../sass/style.scss */
+/* line 176, ../../sass/style.scss */
 .page-controls .page-navigation {
   min-width: 120px;
   text-align: right;
 }
 
-/* line 172, ../../sass/style.scss */
+/* line 182, ../../sass/style.scss */
 .product-table-container {
   margin-top: 64px;
+  border-top: 1px solid #CCC;
 }
 
-/* line 176, ../../sass/style.scss */
+/* line 187, ../../sass/style.scss */
 .product-table {
   margin: auto;
   width: 100%;
   text-align: left;
   font-weight: 300;
 }
-/* line 182, ../../sass/style.scss */
-.product-table .price {
+/* line 193, ../../sass/style.scss */
+.product-table .product {
+  background-color: transparent;
+  transition: background-color 0.1s linear;
+  padding: 20px;
+  border-bottom: 1px solid #EEE;
+}
+@media (min-width: 1024px) {
+  /* line 193, ../../sass/style.scss */
+  .product-table .product {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+/* line 206, ../../sass/style.scss */
+.product-table .product:hover {
+  background-color: #CCC;
+}
+/* line 210, ../../sass/style.scss */
+.product-table .product .product-image {
+  width: 64px;
+  border-radius: 12px;
+}
+/* line 224, ../../sass/style.scss */
+.product-table .product .product-right {
   text-align: right;
 }
-/* line 186, ../../sass/style.scss */
-.product-table .product-image {
-  width: 64px;
+/* line 228, ../../sass/style.scss */
+.product-table .product .product-name {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+/* line 234, ../../sass/style.scss */
+.product-table .product .product-volume {
+  color: #888;
+}
+/* line 238, ../../sass/style.scss */
+.product-table .product .product-price {
+  font-size: 32px;
+  color: black;
+}
+/* line 243, ../../sass/style.scss */
+.product-table .product .product-saved-price {
+  font-size: 12px;
+  color: #8BC34A;
+}
+/* line 248, ../../sass/style.scss */
+.product-table .product .product-original-price {
+  font-size: 12px;
+  color: #777;
+}
+
+/* line 255, ../../sass/style.scss */
+.footer {
+  height: 50px;
+  background-color: black;
+  color: white;
+}
+/* line 260, ../../sass/style.scss */
+.footer .footer-disclaimer {
+  margin: auto;
+  text-align: center;
+  font-size: 10px;
+  width: 50%;
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+}
+@media (max-width: 767px) {
+  /* line 260, ../../sass/style.scss */
+  .footer .footer-disclaimer {
+    width: 100%;
+    font-size: 8px;
+  }
 }
