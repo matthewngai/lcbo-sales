@@ -122,7 +122,7 @@ a, a:hover {
   background-color: #8BC34A;
   padding-right: 17%;
 }
-@media (max-width: 600px) {
+@media (max-width: 1279px) {
   /* line 162, ../../sass/style.scss */
   .page-controls.affix md-toolbar .md-toolbar-tools {
     padding-right: 0;

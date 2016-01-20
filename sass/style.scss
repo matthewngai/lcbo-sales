@@ -164,7 +164,7 @@ a,a:hover {
         background-color: $light-green-500;
         padding-right: 17%;
 
-        @include xs {
+        @include md {
           padding-right: 0;
         }
       }
