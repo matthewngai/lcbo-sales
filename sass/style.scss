@@ -3,8 +3,34 @@
 @import url(https://fonts.googleapis.com/css?family=Arvo:400,700);
 @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,300,700,500);
 
-$text-primary: black;
-$text-secondary: #777;
+$light-green-50: #F1F8E9;
+$light-green-100: #DCEDC8;
+$light-green-200: #C5E1A5;
+$light-green-300: #AED581;
+$light-green-400: #9CCC65;
+$light-green-500: #8BC34A;
+$light-green-600: #7CB342;
+$light-green-700: #689F38;
+$light-green-800: #558B2F;
+$light-green-900: #33691E;
+$light-green-A100: #CCFF90;
+$light-green-A200: #B2FF59;
+$light-green-A400: #76FF03;
+$light-green-A700: #64DD17;
+
+$grey-50: #FAFAFA;
+$grey-100: #F5F5F5;
+$grey-200: #EEEEEE;
+$grey-300: #E0E0E0;
+$grey-400: #BDBDBD;
+$grey-500: #9E9E9E;
+$grey-600: #757575;
+$grey-700: #616161;
+$grey-800: #424242;
+$grey-900: #212121;
+
+$text-primary: $grey-900;
+$text-secondary: $grey-700;
 
 $tablet-width: 768px;
 $desktop-width: 1024px;
@@ -39,7 +65,7 @@ body {
 .splash {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: $light-green-900;
   position: absolute;
   z-index: 10000;
 
@@ -51,7 +77,7 @@ body {
   }
 
   .splash-text {
-    color: white;
+    color: $light-green-50;
     width: 100%;
     text-align: center;
     font-size: 28px;
@@ -73,7 +99,7 @@ a,a:hover {
 }
 
 .header {
-  background-color: #8BC34A;
+  background-color: $light-green-900;
 
   h1,h2 {
     text-align: center;
@@ -83,7 +109,7 @@ a,a:hover {
   h1 {
     font-family: "Alegreya Sans SC", sans-serif;
     font-size: 64px;
-    color: #2C3C2D;
+    color: $light-green-50;
     font-weight: 400;
 
     @include small {
@@ -95,7 +121,7 @@ a,a:hover {
     position: relative;
     font-size: 16px;
     top: -12px;
-    color: lighten(#2C3C2D, 10%);
+    color: $light-green-200;
     font-weight: 300;
 
     @include small {
@@ -132,7 +158,7 @@ a,a:hover {
     }
 
     .page-navigation,.page-buttons md-icon {
-      color: white;
+      color: $light-green-50;
     }
   }
 
@@ -180,7 +206,7 @@ a,a:hover {
 
 .product-table-container {
   margin-top: 64px;
-  border-top: 1px solid #CCC;
+  border-top: 1px solid $grey-400;
 }
 
 .product-table {
@@ -195,7 +221,7 @@ a,a:hover {
 
     padding: 20px;
 
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid $grey-200;
 
     @include desktop {
       padding-left: 100px;
@@ -203,7 +229,7 @@ a,a:hover {
     }
 
     &:hover {
-      background-color: #CCC;
+      background-color: $light-green-A100;
     }
 
     .product-image {
@@ -231,30 +257,30 @@ a,a:hover {
     }
 
     .product-volume {
-      color: #888;
+      color: $text-secondary;
     }
 
     .product-price {
       font-size: 32px;
-      color: black;
+      color: $text-primary;
     }
 
     .product-saved-price {
       font-size: 12px;
-      color: #8BC34A;
+      color: $light-green-A700;
     }
 
     .product-original-price {
       font-size: 12px;
-      color: #777;
+      color: $text-secondary;
     }
   }
 }
 
 .footer {
   height: 50px;
-  background-color: black;
-  color: white;
+  background-color: $light-green-900;
+  color: $light-green-50;
 
   .footer-disclaimer {
     margin: auto;
