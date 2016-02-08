@@ -13,14 +13,14 @@
     <script data-main="js/index" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.min.js"></script>
   </head>
   <body>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-55136541-8', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-55136541-8', 'auto');
+      ga('send', 'pageview');
+    </script>
     <div class="splash">
       <div class="splash-container">
         <div class="splash-text">
@@ -32,9 +32,15 @@
     <div class="content" ng-controller="AppController as vm">
       <div class="header">
         <div class="header-text">
-          <h1><span>Not</span> <span>for the Taste</span></h1>
+          <h1>
+          <span>Not</span> 
+          <span>for the Taste</span>
+          </h1>
           <h2>Sales at the LCBO</h2>
         </div>
+      </div>
+      <div class="description">
+        
       </div>
       <div class="products" layout="row">
         <md-content flex="100" class="md-whiteframe-4dp">
