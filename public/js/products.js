@@ -79,7 +79,7 @@ define(['constants'], function() {
         },
         controllerAs: 'vm',
         link: function(scope, element, attrs) {
-          
+
         },
         templateUrl: 'templates/product-controls.html'
       };

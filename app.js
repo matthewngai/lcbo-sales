@@ -26,7 +26,7 @@ app.use('/api', api);
 // Update on run
 if (process.env.UPDATE && process.env.UPDATE.trim() == 'true') {
   var LCBOData = require('./modules/LCBOData');
-  LCBOData.update().then(function() {
+  LCBOData.update().then(function(count) {
     console.log('Update complete.');
   });
 }

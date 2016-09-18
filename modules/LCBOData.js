@@ -8,6 +8,7 @@ var q = require('q');
 var cheerio = require('cheerio');
 
 var Product = require('../models/product');
+var Products = require('./Products');
 
 var url = 'http://www.lcbo.com/webapp/wcs/stores/servlet/CategoryNavigationResultsView';
 var form = {
@@ -68,7 +69,7 @@ var parseResult = function(result) {
 var parseAlcoholVol = function(result) {
   $ = cheerio.load(result);
   var text = $('#item-accordion-aside-product-details').text();
-  text = text.substr(text.indexOf('Alcohol/Vol') + 11).trim(); 
+  text = text.substr(text.indexOf('Alcohol/Vol') + 11).trim();
   return text.substr(0, text.indexOf('%') + 1);
 };
 
@@ -200,7 +201,7 @@ var getData = function() {
     // }
 
     // async.series(requests, parseResults.bind(null, deferred));
-    
+
     var forms = [];
     for (var i = 0; i < count; i += 50) {
       forms.push(makeFormData(i));
@@ -211,7 +212,7 @@ var getData = function() {
       console.log(i += 50);
       var html = requestSync(formData);
       var products = parseResult(html);
-      
+
       saveProducts(products)
         .then(function() {
           callback(null);
@@ -229,41 +230,13 @@ var getData = function() {
 var LCBOData = {};
 
 LCBOData.update = function() {
-  return getData();
-  // var deferred = q.defer();
-
-  // getData().then(function(data) {
-  //   _.forEach(data, (item, i) => {
-  //     var product = new Product({
-  //       _id: item.id,
-  //       name: item.name,
-  //       link: item.link,
-  //       code: item.code,
-  //       price: item.price,
-  //       savedPrice: item.savedPrice,
-  //       country: item.country,
-  //       producer: item.producer,
-  //       airMiles: item.airMiles,
-  //       volume: item.volume,
-  //       image: item.image,
-  //       alcohol: item.alcohol
-  //     });
-
-  //     product = product.toObject();
-  //     var id = product._id;
-  //     delete product._id;
-
-  //     Product.findOneAndUpdate({_id: id}, product, { upsert: true }, (err, p) => {
-  //       if (err) {
-  //         console.error(err);
-  //         return deferred.reject(err);
-  //       }
-  //     });
-  //   });
-  //   return deferred.resolve();
-  // });
-
-  // return deferred.promise;
+  return new Promise(resolve => {
+    Product.remove({}, () => {
+      resolve();
+    });
+  }).then(() => {
+    return Products.getProducts().then(saveProducts);
+  });
 }
 
 LCBOData.getCount = function() {
