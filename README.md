@@ -1,6 +1,6 @@
 # lcbo-sales
 
-![Alt text](/sales.png?)
+![Alt text](/sales.PNG?)
 
 `npm install`  
 `set DEBUG=myapp:* && npm start`
