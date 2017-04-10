@@ -1,7 +1,6 @@
 # lcbo-sales
 
-http://notforthetaste.com
-
+![Alt text](/sales.png?)
 
 `npm install`  
 `set DEBUG=myapp:* && npm start`
