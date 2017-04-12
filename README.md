@@ -1,4 +1,4 @@
-# lcbo-sales
+# LCBO Sales
 
 ![Alt text](/sales.PNG?)
 
